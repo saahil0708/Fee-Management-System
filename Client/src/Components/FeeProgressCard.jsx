@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { CreditCard, TrendingUp } from "lucide-react"
-import { CustomButton } from "./CustomButton"
+// import { CustomButton } from "./CustomButton"
 
 export default function FeeProgressCard({ 
   feeData = {}, 
@@ -59,14 +59,14 @@ export default function FeeProgressCard({
           </div>
         </div>
 
-        <CustomButton
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+        {/* <CustomButton */}
+          {/* className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
           size="lg"
           disabled={pendingAmount <= 0} // Disable if nothing to pay
-        >
-          <CreditCard className="mr-2 h-5 w-5" />
-          {pendingAmount > 0 ? 'Pay Remaining Amount' : 'Payment Complete'}
-        </CustomButton>
+        > */}
+          {/* <CreditCard className="mr-2 h-5 w-5" />
+          {pendingAmount > 0 ? 'Pay Remaining Amount' : 'Payment Complete'} */}
+        {/* </CustomButton> */}
       </CardContent>
     </Card>
   )

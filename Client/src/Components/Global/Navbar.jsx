@@ -1,6 +1,6 @@
 import { Bell, GraduationCap } from "lucide-react"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import { CustomButton } from "../CustomButton";
+// import { CustomButton } from "../CustomButton";
 
 export default function Header({ studentData = {} }) {
   // Provide default values
@@ -23,10 +23,9 @@ export default function Header({ studentData = {} }) {
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <CustomButton variant="ghost" size="icon" className="relative hover:bg-blue-50">
+            {/* <CustomButton variant="ghost" size="icon" className="relative hover:bg-blue-50"> */}
               <Bell className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 h-3 w-3 bg-red-500 rounded-full animate-pulse"></span>
-            </CustomButton>
+            {/* </CustomButton> */}
             <Avatar className="ring-2 ring-blue-200 ring-offset-2">
               <AvatarImage src={avatarUrl} alt={name} />
               <AvatarFallback className="bg-blue-500 text-white">
