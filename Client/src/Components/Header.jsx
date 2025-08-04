@@ -1,11 +1,17 @@
 import { Bell, GraduationCap } from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { CustomButton } from "./CustomButton" // Using our custom button
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+import { CustomButton } from "./CustomButton"
 
-export default function Header({ studentData }) {
+export default function Header({ studentData = {} }) {
+  // Provide default values
+  const { 
+    Avatar: avatarUrl = "/placeholder.svg", 
+    name = "Student" 
+  } = studentData || {};
+
   return (
     <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3">
             <div className="p-2 bg-blue-600 rounded-xl">
@@ -22,9 +28,9 @@ export default function Header({ studentData }) {
               <span className="absolute -top-1 -right-1 h-3 w-3 bg-red-500 rounded-full animate-pulse"></span>
             </CustomButton>
             <Avatar className="ring-2 ring-blue-200 ring-offset-2">
-              <AvatarImage src={studentData.Avatar || "/placeholder.svg"} alt={studentData.name} />
+              <AvatarImage src={avatarUrl} alt={name} />
               <AvatarFallback className="bg-blue-500 text-white">
-                {studentData.name
+                {name
                   .split(" ")
                   .map((n) => n[0])
                   .join("")}

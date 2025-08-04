@@ -2,7 +2,23 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Wallet, CreditCard, FileText, Award } from "lucide-react"
 
-export default function QuickStats({ feeData, studentData, progressPercentage }) {
+export default function QuickStats({ 
+  feeData = {}, 
+  studentData = {}, 
+  progressPercentage = 0 
+}) {
+  // Provide default values for feeData properties
+  const {
+    totalFees = 0,
+    paidAmount = 0,
+    pendingAmount = 0,
+    dueDate = "N/A",
+    scholarshipAmount = 0
+  } = feeData || {};
+
+  // Calculate pending amount if not provided
+  const calculatedPending = pendingAmount || (totalFees - paidAmount);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
       <Card className="border-0 shadow-lg bg-emerald-50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
@@ -13,7 +29,7 @@ export default function QuickStats({ feeData, studentData, progressPercentage })
           </div>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold text-emerald-800">₹{feeData.totalFees.toLocaleString()}</div>
+          <div className="text-2xl font-bold text-emerald-800">₹{totalFees.toLocaleString()}</div>
           <p className="text-xs text-emerald-600 mt-1">Academic Year 2024</p>
         </CardContent>
       </Card>
@@ -26,7 +42,7 @@ export default function QuickStats({ feeData, studentData, progressPercentage })
           </div>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold text-green-800">₹{feeData.paidAmount.toLocaleString()}</div>
+          <div className="text-2xl font-bold text-green-800">₹{paidAmount.toLocaleString()}</div>
           <p className="text-xs text-green-600 mt-1">{progressPercentage.toFixed(1)}% completed</p>
         </CardContent>
       </Card>
@@ -39,8 +55,8 @@ export default function QuickStats({ feeData, studentData, progressPercentage })
           </div>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold text-orange-800">₹{feeData.pendingAmount.toLocaleString()}</div>
-          <p className="text-xs text-orange-600 mt-1">Due: {feeData.dueDate}</p>
+          <div className="text-2xl font-bold text-orange-800">₹{calculatedPending.toLocaleString()}</div>
+          <p className="text-xs text-orange-600 mt-1">Due: {dueDate}</p>
         </CardContent>
       </Card>
 
@@ -52,7 +68,7 @@ export default function QuickStats({ feeData, studentData, progressPercentage })
           </div>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold text-purple-800">₹{feeData.scholarshipAmount.toLocaleString()}</div>
+          <div className="text-2xl font-bold text-purple-800">₹{scholarshipAmount.toLocaleString()}</div>
           <Badge className="mt-1 bg-purple-100 text-purple-700 hover:bg-purple-200">Merit Based</Badge>
         </CardContent>
       </Card>

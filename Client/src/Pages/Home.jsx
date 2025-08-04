@@ -13,7 +13,6 @@ import WelcomeSection from '../Components/WelcomeSection';
 const Home = () => {
   return (
     <>
-      <Header />
       <WelcomeSection />
       <QuickStats />
       <FeeProgressCard />
@@ -22,7 +21,7 @@ const Home = () => {
       <PaymentHistoryTab />
       <ProfileTab />
       <UpcomingEventsCard />
-      <CustomButton />
+      {/* <CustomButton /> */}
     </>
   );
 };
