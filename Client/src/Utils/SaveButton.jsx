@@ -26,7 +26,7 @@ export default function LoadingButtonsTransition() {
         loadingPosition="start"
         startIcon={<SaveIcon />}
         variant="contained"
-        sx={{ backgroundColor: '#1976d2', color: '#fff', padding: '6px 16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} // Custom styles
+        sx={{ backgroundColor: '#2563eb', fontFamily: "Outfit", color: '#fff', padding: '6px 16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} // Custom styles
       >
         Save
       </LoadingButton>
